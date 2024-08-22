@@ -36,7 +36,7 @@ pipeline {
                     echo 'Preparing LMS Deployment'
                     def packageJSON = readJSON file: 'webapp/package.json'
                     def packageJSONVersion = packageJSON.version
-                    sh "curl -u admin:jenkins -X GET \'http://54.234.130.5:8081/repository/lms/lms-${packageJSONVersion}.zip\' --output lms-'${packageJSONVersion}'.zip"
+                    sh "curl -u admin:jenkins -X GET \'http://98.81.137.55:8081/repository/lms/lms-${packageJSONVersion}.zip\' --output lms-'${packageJSONVersion}'.zip"
                     sh 'sudo rm -rf /var/www/html/*'
                     sh "sudo unzip -o lms-'${packageJSONVersion}'.zip"
                     sh "sudo cp -r webapp/dist/* /var/www/html"
